@@ -8,6 +8,7 @@ import img from "./components/background.jpg";
 
 const Wrapper = styled.div`
   width: 100vw;
+  min-width: 700px;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -18,10 +19,10 @@ const Wrapper = styled.div`
 
 function App() {
   const [toDoList, setToDoList] = useState([
-    { id: uuid(), task: "Buy eggs" },
-    { id: uuid(), task: "Pay bills" },
-    { id: uuid(), task: "Invite friends over" },
-    { id: uuid(), task: "Fix the TV" },
+    { id: uuid(), task: "Buy eggs", done: false },
+    { id: uuid(), task: "Pay bills", done: false },
+    { id: uuid(), task: "Invite friends over", done: true },
+    { id: uuid(), task: "Fix the TV", done: true },
   ]);
 
   return (
