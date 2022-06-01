@@ -171,21 +171,6 @@ const List = ({ toDoList, setToDoList }) => {
       );
     }
   };
-  let taskSort = (i) => {
-    let temp = i;
-    temp.forEach((item) => {
-      let temp = item.task.toLowerCase().split(" ");
-      let task = "";
-      temp.forEach((i) => {
-        task = task.concat(" ", i);
-        return task;
-      });
-      item.task = task;
-      console.log(task);
-      console.log(item.task);
-    });
-    console.log(temp);
-  };
   return (
     <TaskContainer>
       {toDoList
