@@ -114,10 +114,26 @@ const Add = ({ toDoList, setToDoList }) => {
   const [Alerter, setAlerter] = useState({ display: "none" });
   const [input, setInput] = useState();
   let temp = document.getElementById("input");
+  let organizeText = (i) => {
+    let temp = i;
+    temp = temp.toLowerCase().split(" ");
+    for (let i = 0; i < temp.length; i++) {
+      let item = temp[i];
+      item = item.charAt(0).toUpperCase() + item.substr(1);
+      temp[i] = item;
+    }
+    let tempString = "";
+    for (let i = 0; i < temp.length; i++) {
+      tempString = tempString + " " + temp[i];
+    }
+    return tempString.substring(1);
+  };
   let addTask = () => {
     if (temp.value) {
-      setToDoList([...toDoList, { id: uuid(), task: input, done: false }]);
-      console.log(toDoList);
+      setToDoList([
+        ...toDoList,
+        { id: uuid(), task: organizeText(input), done: false },
+      ]);
       temp.value = "";
       setAlerter({ display: "none" });
     } else {

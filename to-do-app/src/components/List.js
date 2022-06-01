@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 
 const Button = styled.button`
@@ -67,7 +67,7 @@ const DelButton = styled(Button)`
   }
 `;
 const DoneButton = styled(Button)`
-  overflow: visible;
+  overflow: hidden;
   padding: 0;
   color: green;
   font-size: 1rem;
@@ -171,10 +171,25 @@ const List = ({ toDoList, setToDoList }) => {
       );
     }
   };
+  let taskSort = (i) => {
+    let temp = i;
+    temp.forEach((item) => {
+      let temp = item.task.toLowerCase().split(" ");
+      let task = "";
+      temp.forEach((i) => {
+        task = task.concat(" ", i);
+        return task;
+      });
+      item.task = task;
+      console.log(task);
+      console.log(item.task);
+    });
+    console.log(temp);
+  };
   return (
     <TaskContainer>
       {toDoList
-        .sort((a, b) => (a.id > b.id ? 1 : -1))
+        .sort((a, b) => (a.task > b.task ? 1 : -1))
         .map(({ id, task, done }) => (
           <Task>
             <p>{task}</p>
