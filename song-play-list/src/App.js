@@ -9,6 +9,7 @@ function App() {
   const [keyWord, setKeyWord] = useState("manga");
   const [responseData, setResponseData] = useState([]);
   const [favorites, setFavorites] = useState([]);
+  const [urlList, setUrlList] = useState([]);
   let url = `https://ws.audioscrobbler.com/2.0/?method=track.search&track=${keyWord}&api_key=0b323aba795f3ac625e85352f08e65b1&format=json`;
 
   let data = () => {
@@ -23,18 +24,22 @@ function App() {
   }, [keyWord]);
 
   return (
-    <div>
-      <Search keyWord={keyWord} setKeyWord={setKeyWord} data={data} />
-      <div style={{ display: "flex" }}>
+    <div className="outer-container">
+      <Search setKeyWord={setKeyWord} />
+      <div className="inner-container" style={{ display: "flex" }}>
         <Filtered
           responseData={responseData}
           favorites={favorites}
           setFavorites={setFavorites}
+          urlList={urlList}
+          setUrlList={setUrlList}
         />
         <Favorite
           responseData={responseData}
           favorites={favorites}
           setFavorites={setFavorites}
+          urlList={urlList}
+          setUrlList={setUrlList}
         />
       </div>
       <button onClick={data}>Axios</button>

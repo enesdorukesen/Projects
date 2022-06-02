@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Seach = ({ setKeyWord, keyWord, data }) => {
+const Seach = ({ setKeyWord }) => {
   const [input, setInput] = useState("");
   let onChangeHandler = (e) => {
     setInput(e.target.value);
