@@ -20,15 +20,24 @@ const Filtered = ({
     }
   };
   return (
-    <div>
+    <div className="list">
       <h3>Filtered Songs</h3>
       <ol>
+        <tr>
+          <th className="number">Number</th>
+          <th className="song">Song</th>
+          <th className="artist">Artist</th>
+          <th className="button"></th>
+        </tr>
         {responseData.map((item) => (
-          <li key={item.url}>
-            {item.name}
-            {item.artist}
-            <button onClick={() => addRemove(item)}>Add/Remove</button>
-          </li>
+          <tr key={item.url}>
+            <td className="number">{responseData.indexOf(item) + 1}</td>
+            <td className="song">{item.name}</td>
+            <td className="artist">{item.artist}</td>
+            <td className="button">
+              <button onClick={() => addRemove(item)}>Add/Remove</button>
+            </td>
+          </tr>
         ))}
       </ol>
     </div>

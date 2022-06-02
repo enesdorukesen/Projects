@@ -26,7 +26,7 @@ function App() {
   return (
     <div className="outer-container">
       <Search setKeyWord={setKeyWord} />
-      <div className="inner-container" style={{ display: "flex" }}>
+      <div className="inner-container">
         <Filtered
           responseData={responseData}
           favorites={favorites}
@@ -42,7 +42,6 @@ function App() {
           setUrlList={setUrlList}
         />
       </div>
-      <button onClick={data}>Axios</button>
     </div>
   );
 }

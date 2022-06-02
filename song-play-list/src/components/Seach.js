@@ -7,9 +7,12 @@ const Seach = ({ setKeyWord }) => {
     setKeyWord(input);
   };
   return (
-    <div>
-      <input type="text" onChange={onChangeHandler} />
-      <button>Search</button>
+    <div className="search-bar">
+      <input
+        type="text"
+        onChange={onChangeHandler}
+        placeholder="enter something (etc.: 'BTS' , 'yağmurlar') "
+      />
     </div>
   );
 };
