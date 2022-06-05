@@ -35,7 +35,9 @@ const Filtered = ({
             <td className="song">{item.name}</td>
             <td className="artist">{item.artist}</td>
             <td className="button">
-              <button onClick={() => addRemove(item)}>Add/Remove</button>
+              <button onClick={() => addRemove(item)}>
+                {urlList.includes(item.url) ? "Remove" : "Add"}
+              </button>
             </td>
           </tr>
         ))}
