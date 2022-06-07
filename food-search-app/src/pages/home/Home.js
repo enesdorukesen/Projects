@@ -12,7 +12,7 @@ const mealTypes = ["Breakfast", "Lunch", "Dinner", "Snack", "TeaTime"];
 const Home = () => {
   const [query, setQuery] = useState("potato");
   const [meal, setMeal] = useState("breakfast");
-  const [recipes, setRecipes] = useState([]);
+  const [recipes, setRecipes] = useState();
   let reqUrl = `https://api.edamam.com/api/recipes/v2?type=public&q=${query}&app_id=${appID}&app_key=${appKey}&mealType=${meal}`;
 
   const getData = async () => {

@@ -1,4 +1,5 @@
 import React from "react";
+import { StyledForm, Input, Button, Select } from "./HeaderStyle";
 
 const Form = ({ query, setQuery, meal, mealTypes, setMeal, getData }) => {
   const handleSubmit = (e) => {
@@ -10,13 +11,13 @@ const Form = ({ query, setQuery, meal, mealTypes, setMeal, getData }) => {
     console.log("clicked");
   };
   return (
-    <form onSubmit={handleSubmit}>
-      <input
+    <StyledForm onSubmit={handleSubmit}>
+      <Input
         type="text"
         placeholder="Search"
         onChange={(e) => setQuery(e.target.value)}
       />
-      <select
+      <Select
         name="mealTypes"
         id="MealTypes"
         onChange={(e) => setMeal(e.target.value)}
@@ -26,9 +27,9 @@ const Form = ({ query, setQuery, meal, mealTypes, setMeal, getData }) => {
             {item}
           </option>
         ))}
-      </select>
-      <button onClick={handleClick}>Search</button>
-    </form>
+      </Select>
+      <Button onClick={handleClick}>Search</Button>
+    </StyledForm>
   );
 };
 
