@@ -4,31 +4,58 @@ export const RecipeContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  background-color: #9a9a9a;
 `;
 
 export const RecipeCardStyle = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: end;
   align-items: center;
-  border: 2px solid black;
+  background-color: wheat;
+  border-radius: 15px;
   overflow: hidden;
   height: 30vh;
   width: 30vh;
-  margin: 15px;
-`;
-
-export const RecipeImage = styled.img`
-  height: 70%;
-`;
-
-export const Button = styled.button`
-  position: absolute;
-  bottom: 0px;
+  margin: 10px;
 `;
 
 export const RecipeHeader = styled.h1`
-  font-size: 18px;
+  margin: 5px 15px 0 15px;
+  font-size: 16px;
+  text-align: center;
+  height: 43px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  z-index: 1;
+  :hover {
+    overflow: visible;
+  }
+`;
+
+export const RecipeImage = styled.img`
+  margin-top: 5px;
+  height: 70%;
+  z-index: 0;
+`;
+
+export const Button = styled.button`
+  height: 32px;
+  width: 75px;
+  margin-top: 5px;
+  border: none;
+  border-radius: 4px;
+  background-color: #9dff5f;
+  cursor: pointer;
+  :hover {
+    background-color: #c5fffe;
+  }
+  :focus {
+    outline: none;
+  }
+  :active {
+    background-color: #9dd1d0;
+  }
 `;
 
 export const ImgDiv = styled.div``;

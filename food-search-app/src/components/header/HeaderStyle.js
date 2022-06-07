@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 export const StyledForm = styled.form`
-  height: 15vh;
+  height: 10vh;
   min-height: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid red;
-  background-color: #6a6a6a;
+  border-bottom: 2px solid #4a4a4a;
+  background-color: #9a9a9a;
 `;
 
 export const Input = styled.input`
