@@ -41,14 +41,16 @@ export const RecipeImage = styled.img`
 
 export const Button = styled.button`
   height: 32px;
-  width: 75px;
+  width: 80px;
   margin-top: 5px;
-  border: none;
+  border: 1px solid black;
   border-radius: 4px;
-  background-color: #9dff5f;
+  background-color: transparent;
   cursor: pointer;
   :hover {
-    background-color: #c5fffe;
+    background-color: black;
+    color: wheat;
+    border: 1px solid wheat;
   }
   :focus {
     outline: none;
@@ -58,6 +60,11 @@ export const Button = styled.button`
   }
 `;
 
-export const ImgDiv = styled.div``;
+export const ImgDiv = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 
-export const HomeImg = styled.img``;
+export const HomeImg = styled.img`
+  background-color: blanchedalmond;
+`;

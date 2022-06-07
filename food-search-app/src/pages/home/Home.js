@@ -49,7 +49,6 @@ const Home = () => {
           <HomeImg src={homeSvg} />
         </ImgDiv>
       )}
-      <button onClick={() => console.log(recipes)}>recipes</button>
     </div>
   );
 };
