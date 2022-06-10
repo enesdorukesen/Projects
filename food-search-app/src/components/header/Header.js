@@ -15,5 +15,5 @@ const Header = ({ query, setQuery, meal, mealTypes, setMeal, getData }) => {
     </div>
   );
 };
-
+//added smt usefull
 export default Header;
