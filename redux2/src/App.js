@@ -29,6 +29,14 @@ export const rootReducer = (state = initialstate, { type, payload }) => {
       return { ...state, language: payload };
     case "CLEAR_ERROR":
       return { ...state, error: [] };
+    case "SET_USER_LIST":
+      return { ...state, userList: payload };
+    case "SET_SELECTED_USER":
+      return { ...state, selectedUser: payload };
+    case "SET_NEWS_LIST":
+      return { ...state, newsList: payload };
+    case "SET_SELECTED_NEWS":
+      return { ...state, selectedNews: payload };
     default:
       return state;
   }
@@ -47,6 +55,9 @@ if (process.env.NODE_ENV === "development") {
 } else {
   store = legacy_createStore(rootReducer, applyMiddleware(thunk));
 }
+store.subscribe(() => {
+  store.getState();
+});
 
 const App = () => {
   return (

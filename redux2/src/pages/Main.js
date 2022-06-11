@@ -7,17 +7,31 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
-import React from "react";
-
-const fakeUserList = [
-  { name: "Ali", username: "mrA", email: "Ali@mail.com" },
-  { name: "Veli", username: "mrV", email: "Veli@mail.com" },
-  { name: "Cafer", username: "mrC", email: "Cafer@mail.com" },
-  { name: "Berk", username: "mrB", email: "Berk@mail.com" },
-  { name: "Dogi", username: "mrD", email: "Dogi@mail.com" },
-];
+import axios from "axios";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux/es/exports";
 
 const Main = () => {
+  const dispatch = useDispatch();
+  const { loading, userList } = useSelector((state) => state);
+
+  useEffect(() => {
+    const getUserList = async () => {
+      try {
+        dispatch({ type: "SET_LOADING_TRUE" });
+        const response = await axios.get(
+          "https://jsonplaceholder.typicode.com/users"
+        );
+        dispatch({ type: "SET_USER_LIST", payload: response.data });
+      } catch (error) {
+        console.log(error);
+      } finally {
+        dispatch({ type: "SET_LOADING_FALSE" });
+      }
+    };
+    getUserList();
+  }, []);
+
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }}>
@@ -29,16 +43,18 @@ const Main = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {fakeUserList.map((row) => (
-            <TableRow
-              key={row.name}
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-            >
-              <TableCell>{row.name}</TableCell>
-              <TableCell>{row.username}</TableCell>
-              <TableCell>{row.email}</TableCell>
-            </TableRow>
-          ))}
+          {loading
+            ? "Loading"
+            : userList.map((row) => (
+                <TableRow
+                  key={row.name}
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                >
+                  <TableCell>{row.name}</TableCell>
+                  <TableCell>{row.username}</TableCell>
+                  <TableCell>{row.email}</TableCell>
+                </TableRow>
+              ))}
         </TableBody>
       </Table>
     </TableContainer>
