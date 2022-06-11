@@ -1,18 +1,13 @@
-const initialState = {
-  counter: 0,
-};
+import { legacy_createStore, combineReducers } from "redux";
+import counterReducer from "./reducer/counterReducer";
+import toDoReducer from "./reducer/toDoReducer";
 
-const reducer = (state = initialState, action) => {
-  switch (action.type) {
-    case "INCREASE":
-      return { counter: state.counter + 1 };
-    case "DECREASE":
-      return { counter: state.counter - 1 };
-    case "RESET":
-      return { counter: 0 };
-    default:
-      return state;
-  }
-};
+const reducers = combineReducers({
+  counterReducer: counterReducer,
+  toDoReducer: toDoReducer,
+});
 
-export default reducer;
+export const combineStore = () => {
+  const store = legacy_createStore(reducers);
+  return store;
+};

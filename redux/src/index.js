@@ -1,11 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import { legacy_createStore } from "redux";
 import { Provider } from "react-redux";
-import reducer from "./redux";
+import { combineStore } from "./redux";
 
-const store = legacy_createStore(reducer);
+const store = combineStore();
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
