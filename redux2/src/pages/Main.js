@@ -7,29 +7,16 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
-import axios from "axios";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux/es/exports";
+import { getUserList } from "../App";
 
 const Main = () => {
   const dispatch = useDispatch();
   const { loading, userList } = useSelector((state) => state);
 
   useEffect(() => {
-    const getUserList = async () => {
-      try {
-        dispatch({ type: "SET_LOADING_TRUE" });
-        const response = await axios.get(
-          "https://jsonplaceholder.typicode.com/users"
-        );
-        dispatch({ type: "SET_USER_LIST", payload: response.data });
-      } catch (error) {
-        console.log(error);
-      } finally {
-        dispatch({ type: "SET_LOADING_FALSE" });
-      }
-    };
-    getUserList();
+    dispatch(getUserList);
   }, []);
 
   return (
