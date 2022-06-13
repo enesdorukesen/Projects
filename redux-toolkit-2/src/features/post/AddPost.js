@@ -41,16 +41,19 @@ const AddPostForm = () => {
         value={title}
         onChange={onChangeTitle}
       />
+      <div style={{ display: "flex" }}>
+        <label htmlFor="postContent"> Post Title : </label>
+        <textarea
+          type="text"
+          id="postContent"
+          value={content}
+          onChange={onChangeContent}
+        />
+      </div>
       <select name="postAuthor" id="postAuthor" onChange={onChangeAuthor}>
+        <option disabled={true}>Select Author</option>
         {userOptions}
       </select>
-      <label htmlFor="postContent"> Post Title : </label>
-      <textarea
-        type="text"
-        id="postContent"
-        value={content}
-        onChange={onChangeContent}
-      />
       <button type="button" disabled={!canSave} onClick={saveClickHandler}>
         Save Post
       </button>
