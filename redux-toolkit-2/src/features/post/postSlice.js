@@ -26,7 +26,7 @@ const postSlice = createSlice({
       prepare(title, content, userId, date) {
         return {
           payload: {
-            id: nanoid(),
+            id: parseInt(nanoid()),
             userId,
             title,
             content,

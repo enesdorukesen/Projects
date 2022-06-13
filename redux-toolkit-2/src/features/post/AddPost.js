@@ -15,7 +15,7 @@ const AddPostForm = () => {
 
   const onChangeTitle = (e) => setTitle(e.target.value);
   const onChangeContent = (e) => setContent(e.target.value);
-  const onChangeAuthor = (e) => setUserId(e.target.value);
+  const onChangeAuthor = (e) => setUserId(parseInt(e.target.value));
 
   const userOptions = users.map((user) => (
     <option key={user.id} value={user.id}>
