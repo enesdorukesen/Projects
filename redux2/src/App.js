@@ -10,10 +10,6 @@ import { Provider as StoreProvider } from "react-redux";
 
 // export const rootReducer = (state = initialstate, { type, payload }) => {
 //   switch (type) {
-//     case "SET_USER_LIST":
-//       return { ...state, userList: payload };
-//     case "SET_SELECTED_USER":
-//       return { ...state, selectedUser: payload };
 //     case "SET_NEWS_LIST":
 //       return { ...state, newsList: payload };
 //     case "SET_SELECTED_NEWS":

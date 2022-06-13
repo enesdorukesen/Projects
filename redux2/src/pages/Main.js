@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux/es/exports";
-import { getUserList } from "../App";
+import { getUserList } from "../redux/thunks/appThunk";
 
 const Main = () => {
   const dispatch = useDispatch();
