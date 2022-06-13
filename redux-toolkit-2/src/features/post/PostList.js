@@ -10,9 +10,9 @@ const PostList = () => {
     <article key={post.id}>
       <h3>{post.title}</h3>
       <p>{post.content.substring(0, 100)}</p>
-      <p className="postCredit">
+      <div className="postCredit">
         {users.find(({ id }) => id === post.userId).name}
-      </p>
+      </div>
     </article>
   ));
   return (

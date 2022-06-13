@@ -11,27 +11,25 @@ const AddPostForm = () => {
   const [content, setContent] = useState("");
   const [userId, setUserId] = useState("");
 
-  const user = useSelector(selectAllUsers);
+  const users = useSelector(selectAllUsers);
 
   const onChangeTitle = (e) => setTitle(e.target.value);
   const onChangeContent = (e) => setContent(e.target.value);
   const onChangeAuthor = (e) => setUserId(e.target.value);
 
-  const saveClickHandler = () => {
-    if (title && content) {
-      dispatch(addPost(title, content, userId));
-      setContent("");
-      setTitle("");
-    }
-  };
-
-  const userOptions = user.map((user) => (
+  const userOptions = users.map((user) => (
     <option key={user.id} value={user.id}>
       {user.name}
     </option>
   ));
 
-  const canSave = Boolean(title) && Boolean(content) && Boolean(user);
+  const saveClickHandler = () => {
+    dispatch(addPost(title, content, userId));
+    setContent("");
+    setTitle("");
+  };
+
+  const canSave = Boolean(title) && Boolean(content) && Boolean(userId);
 
   return (
     <section>
@@ -44,7 +42,6 @@ const AddPostForm = () => {
         onChange={onChangeTitle}
       />
       <select name="postAuthor" id="postAuthor" onChange={onChangeAuthor}>
-        <option value="">Unknown User</option>
         {userOptions}
       </select>
       <label htmlFor="postContent"> Post Title : </label>
