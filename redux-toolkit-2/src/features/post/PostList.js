@@ -1,8 +1,10 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { selectAllUsers } from "../user/userSlice";
 import { selectAllPosts } from "./postSlice";
+import { delPost } from "../post/postSlice";
 
 const PostList = () => {
+  const dispatch = useDispatch();
   const posts = useSelector(selectAllPosts);
   const users = useSelector(selectAllUsers);
 
@@ -10,9 +12,12 @@ const PostList = () => {
     <article key={post.id}>
       <h3>{post.title}</h3>
       <p>{post.content.substring(0, 100)}</p>
-      <div className="postCredit">
+      <p className="postCredit">
         {users.find(({ id }) => id === post.userId).name}
-      </div>
+      </p>
+      <button onClick={() => dispatch(delPost(post.id))}>
+        Delete Arcticle
+      </button>
     </article>
   ));
   return (
