@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class PlaygorundConfig(AppConfig):
+class App001Config(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'playgorund'
+    name = 'app_001'
